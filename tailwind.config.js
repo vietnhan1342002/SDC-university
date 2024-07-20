@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: [
     "./index.html",
@@ -9,9 +10,11 @@ export default {
       flexGrow: {
         '2': 2,
         '3': 3,
-      }
+      },
     },
   },
-  plugins: [],
+  plugins: [
+
+  ],
 }
 

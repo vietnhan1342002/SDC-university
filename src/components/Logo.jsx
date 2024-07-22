@@ -55,10 +55,10 @@ const InfoUniversity = ({ isFooter }) => {
     <div className="flex flex-col">
       <h1 className={classNames("text-4xl font-bold text-green-700", {
         'text-2xl text-white ': isFooter
-      })}>TRƯỜNG ĐẠI HỌC CNTT E-THIN</h1>
+      })}>TRƯỜNG ĐẠI HỌC NGHỀ QUẢNG NAM</h1>
       <h1 className={classNames("text-xl font-bold text-red-600",{
         'text-base text-white': isFooter
-      })}>DANANG VOCATIONAL TRAINING COLLEGE</h1>
+      })}>QUANG NAM VOCATIONAL UNIVERSITY</h1>
       <ContactInfo icon={<CiLocationOn />} text="41 Lê Duẩn, Hải Châu 1, Đà Nẵng" isFooter={isFooter} />
       <ContactInfo icon={<MdOutlineEmail />} text="sdc@sdc.udn.vn" isFooter={isFooter} />
       <ContactInfo icon={<MdPhoneInTalk />} text="0123-456-789" isFooter={isFooter} />

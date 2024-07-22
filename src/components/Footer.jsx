@@ -4,7 +4,7 @@ import { FaFacebook, FaGoogle, FaInstagramSquare } from "react-icons/fa";
 const Footer = () => {
     const sizeIcon = 30;
     return (
-        <div className="flex flex-col  bg-gray-400 pt-4 border-t-2 border-black">
+        <div className="flex flex-col  bg-red-600 pt-4 border-t-2 border-black">
             <div className="flex md:flex-row flex-col gap-5 py-2 px-36">
                 <div className=" w-full h-1/2 pl-2 ">
                     <div className="flex flex-col justify-center items-start h-full gap-3">
@@ -31,9 +31,10 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="bg-gray-100 w-full h-1/2">
-                    <div className="flex flex-col justify-center items-center h-full">
-                        <p className="text-gray-600 text-2xl">Map</p>
+                <div className="w-full h-1/5 ">
+                    <div className="flex flex-col justify-center items-center h-full gap-2">
+                        <p className="text-white text-2xl">Map</p>
+                        <img src='/images/banner.jpg' className="max-w-sm" />
                     </div>
                 </div>
             </div>

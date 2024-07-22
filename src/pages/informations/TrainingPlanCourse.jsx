@@ -45,7 +45,7 @@ const TrainingPlanCourse = () => {
     // const displayedJobs = jobs && jobs.length > 0 ? jobs : defaultJobs;
 
     return (
-        <div className="flex flex-col m-5">
+        <div className="flex flex-col m-5 px-52">
             <HeaderAboutUs title='KẾ HOẠCH ĐÀO TẠO NGHÀNH NGHỀ' />
             <div className="px-16 flex flex-col">
                 <h1 className="text-xl font-medium">NGÀNH HỌC</h1>

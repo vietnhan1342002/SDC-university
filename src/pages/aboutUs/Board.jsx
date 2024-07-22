@@ -25,7 +25,7 @@ const boards = [
 
 const Board = () => {
     return (
-        <div className="flex flex-col m-5">
+        <div className="flex flex-col m-5 px-52">
             <HeaderAboutUs title='HỘI ĐỒNG QUẢN TRỊ' />
             <img src={img} />
             <p className="text-4xl text-center p-10 bg-blue-400">

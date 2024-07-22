@@ -14,13 +14,16 @@ import JobSchool from './pages/recruitments/JobSchool';
 import JobCompany from './pages/recruitments/JobCompany';
 import Footer from './components/Footer';
 import Home from './pages/home/Home';
+import ScrollToTop from './components/ScrollToTop';
 
 
 export default function App() {
+
   return (
     <div className="h-screen">
       <Router>
         <Header />
+        <ScrollToTop />
 
         <Routes>
           <Route path="/" element={<Home />} />

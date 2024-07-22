@@ -16,12 +16,12 @@ const overviewContent = [
 
 const Overview = () => {
     return (
-        <div className="flex flex-col m-5">
+        <div className="flex flex-col m-5 px-52">
             <HeaderAboutUs title={'TỔNG QUAN VỀ TRƯỜNG'} />
 
             {
                 overviewContent.map((item) => (
-                    <div key={item.id} className="flex flex-col gap-2">
+                    <div key={item.id} className="flex flex-col gap-2 ">
                         <article className="text-pretty ">
                             {item.content}
                         </article>

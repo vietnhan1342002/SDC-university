@@ -1,4 +1,4 @@
-import HeaderAboutUs from "../../components/HeaderAboutUs";
+import HeaderAboutUs from "./components/HeaderAboutUs";
 
 const img = 'images/organiztionalStructure.jpg'
 

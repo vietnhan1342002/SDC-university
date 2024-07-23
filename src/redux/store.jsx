@@ -1,27 +1,12 @@
-import { legacy_createStore as createStore, applyMiddleware } from 'redux';
-import { thunk } from 'redux-thunk';
-import { composeWithDevTools } from '@redux-devtools/extension';
-import PropTypes from 'prop-types';
+import { configureStore } from '@reduxjs/toolkit';
 
-import rootReducer from './reducers/index';
-import { Provider } from 'react-redux'
 
-const store = createStore(
-    rootReducer,
-    composeWithDevTools(applyMiddleware(thunk))
-)
+import overViewReducer from './AboutUs/OverviewSlice';
 
-const DataProvider = ({ children }) => {
-    return (
-        <Provider store={store}>
-            {children}
-        </Provider>
-    )
-}
+const store = configureStore({
+    reducer: {
+        overView: overViewReducer,
+    },
+});
 
-export default DataProvider;
-
-DataProvider.propTypes = {
-    children: PropTypes.element.isRequired,
-    
-};
+export default store;

@@ -1,5 +1,6 @@
 {
   "name": "school-sdc",
+  "proxy": "http://localhost:3003",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,6 +14,7 @@
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.5",
     "@redux-devtools/extension": "^3.3.0",
+    "@reduxjs/toolkit": "^2.2.6",
     "@tailwindcss/line-clamp": "^0.4.4",
     "axios": "^1.7.2",
     "classnames": "^2.5.1",

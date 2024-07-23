@@ -37,7 +37,7 @@
 // export default TrainingPlanCourse;
 
 import PropTypes from 'prop-types';
-import HeaderAboutUs from "../../components/HeaderAboutUs";
+import HeaderAboutUs from "../aboutUs/components/HeaderAboutUs";
 import { jobs as defaultJobs } from "../../lib/consts/job"; // Importing jobs and renaming it to defaultJobs
 
 const TrainingPlanCourse = () => {

@@ -55,7 +55,7 @@ const InfoUniversity = ({ isFooter }) => {
     <div className="flex flex-col">
       <h1 className={classNames("text-4xl font-bold text-green-700", {
         'text-2xl text-white ': isFooter
-      })}>TRƯỜNG ĐẠI HỌC NGHỀ QUẢNG NAM</h1>
+      })}>TRƯỜNG CAO ĐẲNG NGHỀ QUẢNG NAM</h1>
       <h1 className={classNames("text-xl font-bold text-red-600",{
         'text-base text-white': isFooter
       })}>QUANG NAM VOCATIONAL UNIVERSITY</h1>
@@ -68,7 +68,7 @@ const InfoUniversity = ({ isFooter }) => {
 
 const Logo = () => (
   <div className={'flex flex-row'}>
-    <img src="/images/logo.jpg" className="object-fill h-24 w-36 mr-2 " alt="Logo" />
+    <img src="/images/logo.jpg" className="object-contain h-36 w-36 mr-2 " alt="Logo" />
 
   </div>
 );

@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 
-import overViewReducer from './AboutUs/OverviewSlice';
+import overviewSlice from './AboutUs/OverviewSlice';
 
 const store = configureStore({
     reducer: {
-        overView: overViewReducer,
+        overview: overviewSlice,
     },
 });
 

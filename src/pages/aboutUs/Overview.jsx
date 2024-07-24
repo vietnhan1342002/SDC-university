@@ -1,24 +1,32 @@
-// import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import HeaderAboutUs from "./components/HeaderAboutUs";
-import { useEffect, useState } from "react";
-import { getDataApi } from "../../utils/fetchDataApi";
+import { useEffect } from "react";
+import { fetchAllOverviews } from "../../redux/AboutUs/OverviewSlice";
 
 
 
 
 const Overview = () => {
-    // const dispatch = useDispatch();
-    const [listContent, setListContent] = useState([]);
+    const dispatch = useDispatch();
+    const listContents = useSelector(state => state.overview.listContents);
+    const isLoading = useSelector(state => state.overview.isLoading);
+    const isError = useSelector(state => state.overview.isError);
 
 
     useEffect(() => {
-        getOverviewContent();
-    }, [])
+        dispatch(fetchAllOverviews())
+    }, [dispatch])
 
-    const getOverviewContent = async () => {
-        let res = await getDataApi('information');
-        setListContent(res.data ? res.data : []);
-        console.log(res.data);
+    if(isError === true && isLoading === false){
+        return <div>
+            Something went wrong
+        </div>
+    }
+
+    if(isError === false && isLoading === true){
+        return <div>
+            Loading...
+        </div>
     }
 
     return (
@@ -26,17 +34,17 @@ const Overview = () => {
             <HeaderAboutUs title={'TỔNG QUAN VỀ TRƯỜNG'} />
 
             {
-            
-            listContent&& listContent.length>0 && listContent.map(item => (
-                <div key={item.id} className="flex flex-col gap-5">
-                    <div className="flex flex-col gap-5">
-                        {/* <img src={item.src} alt="" /> */}
-                        <p className="text-2xl font-bold">{item.title}</p>
-                        <p className="text-2xl font-bold">{item.body}</p>
 
+                listContents && listContents.length > 0 && listContents.map(item => (
+                    <div key={item.id} className="flex flex-col gap-5">
+                        <div className="flex flex-col gap-5">
+                            <p className="text-2xl font-bold">{item.title}</p>
+                            <p className="text-2xl font-bold">{item.body}</p>
+                            <img src='images/banner.jpg' alt="" />
+
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))}
 
 
         </div>

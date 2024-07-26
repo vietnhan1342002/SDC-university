@@ -3,7 +3,7 @@ import { getDataApi } from "../../utils/fetchDataApi";
 
 
 export const fetchAllOverviews = createAsyncThunk('overview/fetchAllOverviews', async () => {
-    const res = await getDataApi('information');
+    const res = await getDataApi('about-us');
     return res.data
 })
 

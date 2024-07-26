@@ -1,24 +1,23 @@
 import { Link } from 'react-router-dom';
-import Dropdown from './DropdownMenu';
-import { aboutUs, infomation, admmission, news, recruitment } from '../lib/consts/navigation';
-import Logo, { InfoUniversity } from './Logo';
-import { CiSearch } from 'react-icons/ci';
+
+import Dropdown from '../DropdownMenu';
+import { aboutUs, infomation, admmission, news, recruitment } from '../../lib/consts/navigation';
+import Logo, { InfoUniversity } from '../Logo';
+import Search from './Search';
 
 const Header = () => {
+
     return (
         <header className="bg-white h-auto flex flex-col w-full items-center">
-            <div className="w-full xl:flex xl:flex-row justify-between py-2 px-5 xl:px-56">
+            <div className="relative w-full xl:flex xl:flex-row justify-between py-2 px-5 xl:px-56">
                 <div className="py-2 flex items-center gap-2">
                     <Logo />
                     <InfoUniversity />
                 </div>
-                <div className="py-2 flex flex-1 flex-col justify-center items-start md:items-end">
-                    <div className='relative'>
-                        <CiSearch className='absolute text-gray-400 left-4 top-3' />
-                        <input className="focus:outline-none active:outline-none border border-gray-400 py-2 px-3 rounded-sm w-[22rem] pl-10" type="text" placeholder="Tìm kiếm..." />
 
-                    </div>
-                </div>
+
+                {/* Search */}
+                <Search />
             </div>
 
             {/* Nav */}

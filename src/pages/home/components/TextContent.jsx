@@ -20,6 +20,6 @@ export default function TextContent({ thumbnail, title, time }) {
 TextContent.propTypes = {
     title: PropTypes.string.isRequired,
     time: PropTypes.string.isRequired,
-    thumbnail: PropTypes.string.isRequired,
-    banner: PropTypes.string.isRequired,
+    thumbnail: PropTypes.string,
+    banner: PropTypes.string,
 };

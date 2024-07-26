@@ -17,13 +17,13 @@ const Overview = () => {
         dispatch(fetchAllOverviews())
     }, [dispatch])
 
-    if(isError === true && isLoading === false){
+    if (isError === true && isLoading === false) {
         return <div>
             Something went wrong
         </div>
     }
 
-    if(isError === false && isLoading === true){
+    if (isError === false && isLoading === true) {
         return <div>
             Loading...
         </div>
@@ -34,17 +34,17 @@ const Overview = () => {
             <HeaderAboutUs title={'TỔNG QUAN VỀ TRƯỜNG'} />
 
             {
-
                 listContents && listContents.length > 0 && listContents.map(item => (
                     <div key={item.id} className="flex flex-col gap-5">
                         <div className="flex flex-col gap-5">
-                            <p className="text-2xl font-bold">{item.title}</p>
-                            <p className="text-2xl font-bold">{item.body}</p>
-                            <img src='images/banner.jpg' alt="" />
+                            <p className="text-2xl font-bold">{item.name}</p>
+                            <p className="text-2xl font-bold">{item.description}</p>
+                            <img src='/images/banner.jpg' alt="" />
 
                         </div>
                     </div>
-                ))}
+                ))
+            }
 
 
         </div>

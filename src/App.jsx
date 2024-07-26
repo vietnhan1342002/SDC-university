@@ -1,5 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Overview from './pages/aboutUs/Overview';
 import Board from './pages/aboutUs/Board';
 import NotificationTraining from './pages/informations/NotificationTraining';
@@ -14,6 +14,9 @@ import JobSchool from './pages/recruitments/JobSchool';
 import JobCompany from './pages/recruitments/JobCompany';
 import Footer from './components/Footer';
 import Home from './pages/home/Home';
+import SearchDetail from './pages/Search/SearchDetail';
+
+
 import ScrollToTop from './components/ScrollToTop';
 
 
@@ -50,6 +53,9 @@ export default function App() {
           <Route path="/jobSchool" element={<JobSchool />} />
           <Route path="/jobCompany" element={<JobCompany />} />
 
+
+          {/* Search */}
+          <Route path="/search/news/:keyword" element={<SearchDetail />} />
         </Routes>
         <Footer />
       </Router>

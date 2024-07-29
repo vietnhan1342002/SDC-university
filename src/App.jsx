@@ -18,6 +18,7 @@ import SearchDetail from './pages/Search/SearchDetail';
 
 
 import ScrollToTop from './components/ScrollToTop';
+import Search from './components/Header/Search';
 
 
 export default function App() {
@@ -55,7 +56,10 @@ export default function App() {
 
 
           {/* Search */}
-          <Route path="/search/news/:keyword" element={<SearchDetail />} />
+          {/* <Route path="/search/news/:keyword" element={<SearchDetail />} /> */}
+          <Route path="/search" element={<Search />} />
+          <Route path="/search-detail/:keyword" element={<SearchDetail />} />
+
         </Routes>
         <Footer />
       </Router>

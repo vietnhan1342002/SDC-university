@@ -8,8 +8,8 @@ import Search from './Search';
 const Header = () => {
 
     return (
-        <header className="bg-white h-auto flex flex-col w-full items-center">
-            <div className="relative w-full xl:flex xl:flex-row justify-between py-2 px-5 xl:px-56">
+        <header className="bg-white h-auto flex flex-col w-full items-center just">
+            <div className="relative w-full xl:flex xl:flex-row justify-between items-center py-2 px-5 xl:px-56">
                 <div className="py-2 flex items-center gap-2">
                     <Logo />
                     <InfoUniversity />

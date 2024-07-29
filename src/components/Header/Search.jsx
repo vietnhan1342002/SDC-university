@@ -70,7 +70,7 @@
 // src/components/Search.js
 
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSearchNews, setSearchQuery } from '../../redux/Search';
+import { fetchSearch, setSearchQuery } from '../../redux/searchSlice';
 import { useNavigate } from 'react-router-dom';
 import { CiSearch } from 'react-icons/ci';
 import { useRef } from 'react';
@@ -79,7 +79,7 @@ const Search = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { query, isLoading } = useSelector((state) => state.search);
-
+    const type = 'news';
     const inputRef = useRef();
 
     const handleInputChange = (event) => {
@@ -87,9 +87,9 @@ const Search = () => {
     };
 
     const handleSearchClick = () => {
-        dispatch(fetchSearchNews(query));
-        setSearchQuery('')
+        dispatch(fetchSearch({ type, keyword: query }));
         navigate(`/search-detail/${query}`);
+        setSearchQuery('')
     };
 
     return (

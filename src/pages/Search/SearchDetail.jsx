@@ -2,7 +2,7 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setSearchQuery } from '../../redux/Search';
+import { fetchSearch, setSearchQuery, setSearchType } from '../../redux/searchSlice';
 
 import {
   Select,
@@ -18,6 +18,7 @@ const SearchDetail = () => {
   const navigate = useNavigate();
   const listItems = useSelector((state) => state.search.listItems);
   const query = useSelector((state) => state.search.query);
+  const type = useSelector((state) => state.search.type);
 
   const dispatch = useDispatch();
 
@@ -27,21 +28,24 @@ const SearchDetail = () => {
   };
 
   const handleInputChange = (e) => {
+
     // Xử lý khi nhập vào ô search
     dispatch(setSearchQuery(e.target.value));
   };
 
-  const handleSelect = (value) => {
-    if (value === 'news') {
-      navigate('/news');
-    }
-    // Thực hiện các hành động khác dựa trên giá trị chọn
+  const handleSelect = (type) => {
+    dispatch(setSearchType(type));
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(fetchSearch({ type, keyword: query }));
+  }
 
 
   return (
     <div className='flex flex-col justify-center items-center mx-20 my-2 border-2 border-gray-300 rounded-sm'>
-      <form className='w-11/12 mx-20 my-2 flex flex-col gap-2'>
+      <form className='w-11/12 mx-20 my-2 flex flex-col gap-2' onSubmit={handleSubmit}>
         <input
           className="focus:outline-none active:outline-none border border-gray-300 py-2 px-3 rounded-lg w-full "
           type="text"
@@ -61,7 +65,7 @@ const SearchDetail = () => {
                 <SelectItem value="news">
                   Tin tức
                 </SelectItem>
-                <SelectItem value="grapes">Grapes</SelectItem>
+                <SelectItem value="grapes">Đào tạo</SelectItem>
                 <SelectItem value="pineapple">Pineapple</SelectItem>
               </SelectGroup>
             </SelectContent>
@@ -70,20 +74,25 @@ const SearchDetail = () => {
 
         <div className='flex justify-center'>
           <button type="submit" className='p-2 bg-blue-300 w-20 rounded-sm'>Gửi</button>
-          </div>
+        </div>
 
       </form>
 
       <ul>
-        {listItems.length > 0 ? (
-          listItems.map((item, index) => (
-            <li key={index} onClick={() => handleResultClick(item)}>
-              {item.title}
-            </li>
-          ))
-        ) : (
-          <p>No results found.</p>
-        )}
+        {
+          listItems.length > 0 ? (
+            listItems.map((item, index) => (
+              <li key={index} onClick={() => handleResultClick(item)}>
+                {item.title}
+              </li>
+            ))
+          ) : (
+            <div>
+              <p>No results found.</p>
+            </div>
+          )
+        }
+
       </ul>
       <button onClick={() => navigate('/')}>Back to Search</button>
     </div>

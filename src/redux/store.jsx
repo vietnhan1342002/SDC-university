@@ -3,7 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import overviewSlice from './AboutUs/OverviewSlice';
 import newsSlice from './News/newsSlice';
-import searchSlice from './Search';
+import searchSlice from './searchSlice';
 
 const store = configureStore({
     reducer: {

@@ -19,6 +19,7 @@ import SearchDetail from './pages/Search/SearchDetail';
 
 import ScrollToTop from './components/ScrollToTop';
 import Search from './components/Header/Search';
+import NewDetails from './pages/news/NewsDetails';
 
 
 export default function App() {
@@ -49,6 +50,7 @@ export default function App() {
           <Route path="/sendMessage" element={<SendMessage />} />
 
           <Route path="/news" element={<News />} />
+          <Route path="/news/:keyword" element={<NewDetails />} />
 
           {/* Recruitment */}
           <Route path="/jobSchool" element={<JobSchool />} />

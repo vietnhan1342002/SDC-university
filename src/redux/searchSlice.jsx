@@ -4,10 +4,11 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { getDataApi } from '../utils/fetchDataApi';
 
 export const fetchSearch = createAsyncThunk(
-  'search/fetchSearchNews',
-  async ({type, keyword}, { rejectWithValue }) => {
+  'search/fetchSearch',
+  async ({ type, keyword }, { rejectWithValue }) => {
     try {
       const res = await getDataApi(`search/${type}?keyword=${keyword}`);
+      console.log('API URL:', `search/${type}?keyword=${keyword}`);
       return res.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -25,7 +26,11 @@ export const searchSlice = createSlice({
     isLoading: false,
     isError: false,
     error: null,
-    listItems: [],
+    items: {
+      news: [],
+      trainingFields: [],
+      events: [],
+    },
   },
   reducers: {
     setSearchQuery(state, action) {
@@ -37,6 +42,13 @@ export const searchSlice = createSlice({
     setSelectedResult(state, action) {
       state.selectedResult = action.payload;
     },
+    clearItems: (state) => {
+      state.items = {
+        news: [],
+        trainingFields: [],
+        events: [],
+      };
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -46,10 +58,23 @@ export const searchSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchSearch.fulfilled, (state, action) => {
-        state.listItems = action.payload;
+        switch (state.type) {
+          case 'news':
+            state.items.news = action.payload;
+            break;
+          case 'training-fields':
+            state.items.trainingFields = action.payload;
+            break;
+          case 'event':
+            state.items.events = action.payload;
+            break;
+          default:
+            break;
+        }
         state.isLoading = false;
         state.isError = false;
       })
+
       .addCase(fetchSearch.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
@@ -58,5 +83,5 @@ export const searchSlice = createSlice({
   },
 });
 
-export const { setSearchQuery, setSearchType, setSelectedResult } = searchSlice.actions;
+export const { setSearchQuery, setSearchType, setSelectedResult, clearItems } = searchSlice.actions;
 export default searchSlice.reducer;

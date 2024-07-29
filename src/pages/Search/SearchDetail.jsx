@@ -2,21 +2,20 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { fetchSearch, setSearchQuery, setSearchType } from '../../redux/searchSlice';
+import { clearItems, fetchSearch, setSearchQuery, setSearchType } from '../../redux/searchSlice';
 
 import {
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
 
 const SearchDetail = () => {
   const navigate = useNavigate();
-  const listItems = useSelector((state) => state.search.listItems);
+  const items = useSelector((state) => state.search.items);
   const query = useSelector((state) => state.search.query);
   const type = useSelector((state) => state.search.type);
 
@@ -35,12 +34,43 @@ const SearchDetail = () => {
 
   const handleSelect = (type) => {
     dispatch(setSearchType(type));
+    dispatch(clearItems())
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     dispatch(fetchSearch({ type, keyword: query }));
+    dispatch(setSearchQuery(""));
   }
+
+  const renderItems = () => {
+    let currentItems = [];
+    switch (type) {
+      case 'news':
+        currentItems = items.news;
+        break;
+      case 'training-fields':
+        currentItems = items.trainingFields;
+        break;
+      case 'event':
+        currentItems = items.events;
+        break;
+      default:
+        break;
+    }
+    return currentItems.length > 0 ? (
+      currentItems.map((item, index) => (
+        <li key={index} onClick={() => handleResultClick(item)}>
+          {item.title}
+        </li>
+      ))
+    ) : (
+      <div>
+        <p>No results found.</p>
+      </div>
+    );
+  };
 
 
   return (
@@ -57,16 +87,15 @@ const SearchDetail = () => {
         <div>
           <Select onValueChange={handleSelect}>
             <SelectTrigger className="w-full">
-              <SelectValue placeholder="Select a fruit" />
+              <SelectValue placeholder="Tìm kiếm theo..." />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                <SelectLabel>Fruits</SelectLabel>
                 <SelectItem value="news">
                   Tin tức
                 </SelectItem>
-                <SelectItem value="grapes">Đào tạo</SelectItem>
-                <SelectItem value="pineapple">Pineapple</SelectItem>
+                <SelectItem value="training-fields">Đào tạo</SelectItem>
+                <SelectItem value="event">Sự kiện</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
@@ -79,19 +108,7 @@ const SearchDetail = () => {
       </form>
 
       <ul>
-        {
-          listItems.length > 0 ? (
-            listItems.map((item, index) => (
-              <li key={index} onClick={() => handleResultClick(item)}>
-                {item.title}
-              </li>
-            ))
-          ) : (
-            <div>
-              <p>No results found.</p>
-            </div>
-          )
-        }
+        {renderItems()}
 
       </ul>
       <button onClick={() => navigate('/')}>Back to Search</button>

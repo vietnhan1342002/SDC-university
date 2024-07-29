@@ -79,7 +79,7 @@ const Search = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { query, isLoading } = useSelector((state) => state.search);
-    
+
     const inputRef = useRef();
 
     const handleInputChange = (event) => {
@@ -95,8 +95,8 @@ const Search = () => {
     return (
         <div className='relative className="py-2 flex flex-1 flex-col justify-center items-start md:items-end '>
             <input
-            ref={inputRef}
-                className="focus:outline-none active:outline-none border border-gray-400 py-2 px-3 rounded-sm w-[22rem] pl-10"
+                ref={inputRef}
+                className="focus:outline-none active:outline-none border border-gray-400 py-2 px-3 rounded-sm w-[22rem]"
                 type="text"
                 value={query}
                 onChange={handleInputChange}

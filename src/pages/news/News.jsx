@@ -24,7 +24,7 @@ const News = () => {
                     listNews && listNews.length > 0 && listNews.map(item => (
                         <div
                             key={item.id}
-                            className="flex gap-5 border p-2"
+                            className="flex gap-5 border border-gray-400 rounded p-2"
                             onClick={() => handleResultClick(item)}
                         >
                             <NewsItem title={item.title} body={item.body} created_at={item.created_at} newsDetailLink={`/news/${item.id}`} />
@@ -33,16 +33,7 @@ const News = () => {
                 }
             </div>
             <div className="flex-col flex-1 gap-3 m-5 hidden md:flex border" >
-                <div className="text-center text-2xl font-bold py-3">
-                    Tin tức mới nhất
-                </div>
-                {
-                    listNews && listNews.length > 0 && listNews.map(item => (
-                        <div key={item.id} className="flex gap-5 ">
-                            <FeaturedNews title={item.title} created_at={item.created_at} />
-                        </div>
-                    ))
-                }
+                <FeaturedNews listNews={listNews} />
             </div>
 
         </div>

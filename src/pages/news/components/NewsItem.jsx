@@ -8,7 +8,7 @@ function NewsItem({ title, body, created_at, newsDetailLink }) {
   return (
     <div className="flex flex-col gap-2 px-3 ">
       <Link to={newsDetailLink}>
-        <img src='/images/banner.jpg' alt="" className='object-cover border border-gray-950' />
+        <img src='/images/banner.jpg' title={title} className='object-cover border border-gray-500' />
       </Link>
       <Link to={newsDetailLink} className="text-lg font-bold hover:underline">
         {title}

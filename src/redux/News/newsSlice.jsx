@@ -1,16 +1,23 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { getDataApi } from "../../utils/fetchDataApi";
+import { getDataApi, postDataApi } from "../../utils/fetchDataApi";
 
 
+// Thunks
 export const fetchAllNewsSlices = createAsyncThunk('news/fetchAllNewsSlices', async () => {
     const res = await getDataApi('news');
-    return res.data
-})
+    return res.data;
+});
 
 export const fetchNewsDetail = createAsyncThunk('news/fetchNewsDetail', async (id) => {
     const res = await getDataApi(`news/${id}`);
-    return res.data
-})
+    return res.data;
+});
+
+export const fetchViewsCounter = createAsyncThunk('news/fetchViewsCounter', async (id) => {
+    const res = await postDataApi(`news/increment-view-count/${id}`);
+    return { id, views: res.data.views }; // Cập nhật cấu trúc dữ liệu trả về
+});
+
 
 
 
@@ -20,7 +27,7 @@ export const newsSlice = createSlice({
         listNews: [],
         newsDetail: null,
         isLoading: false,
-        isError: false
+        isError: false,
     },
     reducers: {
         setNewsSliceData: (state, action) => {
@@ -30,41 +37,54 @@ export const newsSlice = createSlice({
         },
         setNewsDetail: (state, action) => {
             state.newsDetail = action.payload;
-        }
+        },
     },
 
     extraReducers(builder) {
+
+        const handlePending = (state) => {
+            state.isLoading = true;
+            state.isError = false;
+        };
+
+        const handleFulfilled = (state) => {
+            state.isLoading = false;
+            state.isError = false;
+        };
+
+        const handleRejected = (state, action) => {
+            state.isLoading = false;
+            state.isError = true;
+            state.error = action.error.message;
+        };
         builder
-            //allNews
-            .addCase(fetchAllNewsSlices.pending, (state) => {
-                state.isLoading = true;
-                state.isError = false;
-            })
+            // Xử lý fetchAllNewsSlices
+            .addCase(fetchAllNewsSlices.pending, handlePending)
             .addCase(fetchAllNewsSlices.fulfilled, (state, action) => {
+                handleFulfilled(state, action);
                 state.listNews = action.payload;
-                state.isLoading = false;
-                state.isError = false;
             })
-            .addCase(fetchAllNewsSlices.rejected, (state, action) => {
-                state.isLoading = false;
-                state.isError = true;
-                state.error = action.error.message
-            })
-            //newsDetail
-            .addCase(fetchNewsDetail.pending, (state) => {
-                state.isLoading = true;
-                state.isError = false;
-            })
+            .addCase(fetchAllNewsSlices.rejected, handleRejected)
+
+            // Xử lý fetchNewsDetail
+            .addCase(fetchNewsDetail.pending, handlePending)
             .addCase(fetchNewsDetail.fulfilled, (state, action) => {
+                handleFulfilled(state);
                 state.newsDetail = action.payload;
-                state.isLoading = false;
-                state.isError = false;
             })
-            .addCase(fetchNewsDetail.rejected, (state, action) => {
-                state.isLoading = false;
-                state.isError = true;
-                state.error = action.error.message
-            });
+            .addCase(fetchNewsDetail.rejected, handleRejected)
+
+            // Xử lý fetchViewsCounter
+            .addCase(fetchViewsCounter.pending, handlePending)
+            .addCase(fetchViewsCounter.fulfilled, (state, action) => {
+                handleFulfilled(state);
+                const { id, views } = action.payload;
+                const newsItem = state.listNews.find((news) => news.id === id);
+                if (newsItem) {
+                    newsItem.views = views;
+                }
+            })
+            .addCase(fetchViewsCounter.rejected, handleRejected);
     }
 
 

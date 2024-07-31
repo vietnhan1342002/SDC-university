@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchAllNewsSlices, fetchNewsDetail } from "@/redux/News/newsSlice";
+import { fetchAllNewsSlices, fetchNewsDetail, fetchViewsCounter } from "@/redux/News/newsSlice";
 import NewsItem from "./components/NewsItem";
 import FeaturedNews from "./featuredNews/FeaturedNews";
 
@@ -15,6 +15,7 @@ const News = () => {
     const handleResultClick = (item) => {
         // Xử lý khi nhấp vào một kết quả, nếu cần
         dispatch(fetchNewsDetail(item.id))
+        dispatch(fetchViewsCounter(item.id))
     };
 
     return (

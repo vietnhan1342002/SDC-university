@@ -3,21 +3,19 @@ import { formatDateTime } from '@/utils/formatDate';
 
 function LatestContent({ listNews }) {
 
-
-
+    // Tìm tin tức mới nhất
     const latestNews = listNews.reduce((latest, item) => {
         const currentNewsDate = new Date(item.created_at);
         const latestNewsDate = latest ? new Date(latest.created_at) : new Date(0);
         return currentNewsDate > latestNewsDate ? item : latest;
     }, null);
 
-    const formattedDateTime = formatDateTime(latestNews.created_at);
+    // Kiểm tra nếu có tin tức mới nhất và định dạng ngày giờ
+    const formattedDateTime = latestNews ? formatDateTime(latestNews.created_at) : 'Không có tin tức';
+
 
     return (
         <div>
-            <div className="text-center text-2xl font-bold py-3">
-                Tin tức mới nhất
-            </div>
             {latestNews ? (
                 <div className="flex flex-col gap-2">
                     <img src="images/banner.jpg" alt="Banner" className="w-full h-full object-contain" />

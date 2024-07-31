@@ -1,9 +1,15 @@
 // src/utils/formatDate.js
 
 export const formatDateTime = (dateString) => {
+  // Tạo đối tượng Date từ chuỗi ngày
   const date = new Date(dateString);
 
-  // Chuyển đối tượng Date thành chuỗi có cả ngày và giờ
+  // Kiểm tra xem đối tượng Date có hợp lệ không
+  if (isNaN(date.getTime())) {
+    return 'Ngày không hợp lệ';
+  }
+
+  // Cấu hình định dạng ngày và giờ
   const dateOptions = {
     year: 'numeric',
     month: '2-digit',

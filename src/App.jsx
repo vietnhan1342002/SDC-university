@@ -50,7 +50,7 @@ export default function App() {
           <Route path="/sendMessage" element={<SendMessage />} />
 
           <Route path="/news" element={<News />} />
-          <Route path="/news/:keyword" element={<NewsDetails />} />
+          <Route path="/news/:id" element={<NewsDetails />} />
 
           {/* Recruitment */}
           <Route path="/jobSchool" element={<JobSchool />} />

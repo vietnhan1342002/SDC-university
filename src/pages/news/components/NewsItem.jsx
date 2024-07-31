@@ -2,19 +2,19 @@ import { formatDateTime } from '@/utils/formatDate';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-function NewsItem({ title, body, created_at, newsDetailLink }) {
+function NewsItem({ id, title, body, created_at, newsDetailLink, onClick }) {
   const formattedDateTime = formatDateTime(created_at);
 
   return (
-    <div className="flex flex-col gap-2 px-3 ">
+    <div key={id} onClick={onClick} className="flex flex-col gap-4 p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
       <Link to={newsDetailLink}>
-        <img src='/images/banner.jpg' title={title} className='object-cover border border-gray-500' />
+        <img src='/images/banner.jpg' title={title} className='object-cover w-full rounded-md border border-gray-300' />
+        <p className="text-lg font-bold text-blue-600 hover:underline">
+          {title}
+        </p>
       </Link>
-      <Link to={newsDetailLink} className="text-lg font-bold hover:underline">
-        {title}
-      </Link>
-      <p className="text-sm text-gray-400 ">{formattedDateTime}</p>
-      <p className="text-base ">{body}</p>
+      <p className="text-sm text-gray-500 ">{formattedDateTime}</p>
+      <p className="text-base text-gray-700">{body}</p>
     </div>
 
   )
@@ -23,6 +23,8 @@ function NewsItem({ title, body, created_at, newsDetailLink }) {
 export default NewsItem
 
 NewsItem.propTypes = {
+  onClick: PropTypes.func,
+  id: PropTypes.string,
   title: PropTypes.string,
   body: PropTypes.string,
   created_at: PropTypes.string,

@@ -9,14 +9,19 @@ function FeaturedNews({ listNews }) {
 
 
   const handleResultClick = (item) => {
-        dispatch(fetchViewsCounter(item.id))
-        dispatch(fetchNewsDetail(item.id))
+    dispatch(fetchViewsCounter(item.id))
+    dispatch(fetchNewsDetail(item.id))
   }
+
   return (
-    <div>
-      <div className="text-center text-2xl font-bold py-3">
-        Tin tức nổi bật
+    <div className="flex flex-col gap-2">
+
+      <div className="relative text-center text-3xl font-bold py-4 bg-red-600 border-2 border-gray-400 text-white rounded-lg overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-purple-500 opacity-50 blur-md"></div>
+        <span className="relative z-10 custom-pulse">Tin tức nổi bật</span>
       </div>
+
+
       {listNews && listNews.length > 0 ? (
         [...listNews]
           .sort((a, b) => b.views - a.views).map((item) => (

@@ -23,13 +23,8 @@ const News = () => {
             <div className="flex flex-[3] flex-col m-5 gap-5 ">
                 {
                     listNews && listNews.length > 0 && listNews.map(item => (
-                        <div
-                            key={item.id}
-                            className="flex gap-5 border border-gray-400 rounded p-2"
-                            onClick={() => handleResultClick(item)}
-                        >
-                            <NewsItem title={item.title} body={item.body} created_at={item.created_at} newsDetailLink={`/news/${item.id}`} />
-                        </div>
+                        
+                            <NewsItem onClick={handleResultClick(item)} key={item.id} title={item.title} body={item.body} created_at={item.created_at} newsDetailLink={`/news/${item.id}`} />
                     ))
                 }
             </div>

@@ -15,10 +15,8 @@ export const fetchNewsDetail = createAsyncThunk('news/fetchNewsDetail', async (i
 
 export const fetchViewsCounter = createAsyncThunk('news/fetchViewsCounter', async (id) => {
     const res = await postDataApi(`news/increment-view-count/${id}`);
-    return { id, views: res.data.views }; // Cập nhật cấu trúc dữ liệu trả về
+    return res.data //{ id, views: res.data.views }; // Cập nhật cấu trúc dữ liệu trả về
 });
-
-
 
 
 export const newsSlice = createSlice({

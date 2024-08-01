@@ -28,7 +28,7 @@ export default function Event() {
             {/* hr */}
             <div className="flex flex-1 flex-col  gap-2 w-1/2 mx-auto"> {/* Giảm chiều rộng của phần tử cha */}
                 <h1 className="text-2xl font-bold">ẢNH VÀ VIDEO</h1>
-                <img src="/images/banner.jpg" alt="" className="w-full h-72 object-cover" />
+                <img src="/images/banner.jpg" alt="" className="w-full h-72 object-fill" />
 
                 {/* Phần cuộn ngang */}
                 <div className="flex flex-row overflow-x-auto py-2 space-x- scrollbar-hidden hover:scrollbar-visible gap-2">

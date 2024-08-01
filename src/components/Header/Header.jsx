@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
-import Dropdown from '../DropdownMenu';
 import { aboutUs, infomation, admmission, news, recruitment } from '../../lib/consts/navigation';
 import Logo, { InfoUniversity } from '../Logo';
 import Search from './Search';
+import DropDownWithSubmenu from '../DropDownTest';
 
 const Header = () => {
 
@@ -25,11 +25,11 @@ const Header = () => {
                 <Link to="/" className="text-xl font-bold leading-6 text-gray-900 hover:bg-gray-200 px-3 py-2 rounded-md">
                     Trang Chủ
                 </Link>
-                <Dropdown title="Giới thiệu" solutions={aboutUs} />
-                <Dropdown title="Đào tạo" solutions={infomation} />
-                <Dropdown title="Tuyển Sinh" solutions={admmission} />
-                <Dropdown title="Tin Tức" solutions={news} />
-                <Dropdown title="Tuyển dụng" solutions={recruitment} />
+                <DropDownWithSubmenu title="Giới thiệu" solutions={aboutUs} />
+                <DropDownWithSubmenu title="Đào tạo" solutions={infomation} />
+                <DropDownWithSubmenu title="Tuyển Sinh" solutions={admmission} />
+                <DropDownWithSubmenu title="Tin Tức" solutions={news} />
+                <DropDownWithSubmenu title="Tuyển dụng" solutions={recruitment} />
             </div>
         </header>
     );

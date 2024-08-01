@@ -24,7 +24,9 @@ function NewsDetails() {
   if (isError) return <p className="text-center text-red-500">Error loading news details.</p>;
 
   return (
-    <div className='flex flex-col items-center w-[80%] p-5 mx-auto'>
+    <div
+      
+       className='flex flex-col items-center w-[80%] p-5 mx-auto'>
       <div className="flex gap-6">
         <div className=' flex flex-[3]'>
           {newsDetail ? (

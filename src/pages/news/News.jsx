@@ -13,18 +13,27 @@ const News = () => {
     }, [dispatch])
 
     const handleResultClick = (item) => {
-        // Xử lý khi nhấp vào một kết quả, nếu cần
-        dispatch(fetchNewsDetail(item.id))
-        dispatch(fetchViewsCounter(item.id))
+        if (item) {
+            // Xử lý khi nhấp vào một kết quả, nếu cần
+            dispatch(fetchNewsDetail(item.id));
+            dispatch(fetchViewsCounter(item.id));
+        }
     };
 
     return (
-        <div className="flex justify-center my-2 w-5/6 mx-auto">
+        <div
+            className="flex justify-center my-2 w-5/6 mx-auto">
             <div className="flex flex-[3] flex-col m-5 gap-5 ">
                 {
                     listNews && listNews.length > 0 && listNews.map(item => (
-                        
-                            <NewsItem onClick={handleResultClick(item)} key={item.id} title={item.title} body={item.body} created_at={item.created_at} newsDetailLink={`/news/${item.id}`} />
+
+                        <NewsItem onClick={
+                            handleResultClick(item)}
+                            key={item.id}
+                            title={item.title}
+                            body={item.body}
+                            created_at={item.created_at}
+                            newsDetailLink={`/news/${item.id}`} />
                     ))
                 }
             </div>

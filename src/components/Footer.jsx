@@ -34,7 +34,7 @@ const Footer = () => {
                 <div className="w-full h-1/5 ">
                     <div className="flex flex-col justify-center items-center h-full gap-2">
                         <p className="text-white text-2xl">Map</p>
-                        <img src='/images/banner.jpg' className="max-w-sm" />
+                        <img src='/images/banner.jpg' className="object-fill" />
                     </div>
                 </div>
             </div>

@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import PropTypes from 'prop-types';
-import HeaderAboutUs from "../aboutUs/components/HeaderAboutUs";
-import { fetchAllTrainingSlices } from "@/redux/Training/trainingSlice";
-import TrainingCourseItem from "./components/TraningCourseItem";
+import HeaderAboutUs from "../../aboutUs/components/HeaderAboutUs";
+import { fetchAllTrainingSlices, fetchTrainingDetail } from "@/redux/Training/trainingSlice";
+import TrainingCourseItem from "../components/TraningCourseItem";
 
 
 const TrainingPlanCourse = () => {
@@ -15,14 +15,18 @@ const TrainingPlanCourse = () => {
         dispatch(fetchAllTrainingSlices())
     }, [dispatch])
 
+    const handleResultClick = (item) => {
+        // Xử lý khi nhấp vào một kết quả, nếu cần
+        dispatch(fetchTrainingDetail(item.id))
+    };
     return (
-        <div className="flex flex-col m-5 px-52">
+        <div className="flex flex-col m-5 mx-auto w-[70%]">
             <HeaderAboutUs title='KẾ HOẠCH ĐÀO TẠO NGHÀNH NGHỀ' />
-            <div className="px-16 flex flex-col">
+            <div className="flex flex-col gap-2">
                 <h1 className="text-xl font-medium">NGÀNH HỌC</h1>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                     {listTraining.map((item) => (
-                        <TrainingCourseItem key={item.id} title={item.title} body={item.body} trainingDetailLink={`/training-fileds/${item.id}`} />
+                        <TrainingCourseItem onclick={handleResultClick(item)} key={item.id} title={item.title} body={item.body} trainingDetailLink={`/trainingPlanCourse/${item.id}`}/>
                     ))}
                 </div>
             </div>

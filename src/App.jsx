@@ -5,7 +5,7 @@ import Board from './pages/aboutUs/Board';
 import NotificationTraining from './pages/informations/NotificationTraining';
 import NotificationStudent from './pages/informations/NotificationStudent';
 import NotificationFinance from './pages/informations/NotificationFinance';
-import TrainingPlanCourse from './pages/informations/TrainingPlanCourse';
+import TrainingPlanCourse from './pages/informations/trainingPlanCourse/TrainingPlanCourse';
 import DescriptionCourse from './pages/admissions/DescriptionCourse';
 import RegisterCourse from './pages/admissions/RegisterCourse';
 import SendMessage from './pages/admissions/SendMessage';
@@ -20,6 +20,7 @@ import SearchDetail from './pages/Search/SearchDetail';
 import ScrollToTop from './components/ScrollToTop';
 import Search from './components/Header/Search';
 import NewsDetails from './pages/news/NewsDetails';
+import TrainingPlanCourseDetail from './pages/informations/trainingPlanCourse/TrainingPlanCourseDetail';
 
 
 export default function App() {
@@ -29,40 +30,41 @@ export default function App() {
       <Router>
         <Header />
         <ScrollToTop />
-
-        <Routes>
-          <Route path="/" element={<Home />} />
-
-
-          {/* AboutUs */}
-          <Route path="/overView" element={<Overview />} />
-          <Route path="/board" element={<Board />} />
-
-          {/* Information */}
-          <Route path="/notificationTraining" element={<NotificationTraining />} />
-          <Route path="/notificationStudent" element={<NotificationStudent />} />
-          <Route path="/notificationFinance" element={<NotificationFinance />} />
-          <Route path="/trainingPlanCourse" element={<TrainingPlanCourse />} />
-
-          {/* Admission */}
-          <Route path="/descriptionCourse" element={<DescriptionCourse />} />
-          <Route path="/registerCourse" element={<RegisterCourse />} />
-          <Route path="/sendMessage" element={<SendMessage />} />
-
-          <Route path="/news" element={<News />} />
-          <Route path="/news/:id" element={<NewsDetails />} />
-
-          {/* Recruitment */}
-          <Route path="/jobSchool" element={<JobSchool />} />
-          <Route path="/jobCompany" element={<JobCompany />} />
+          <Routes>
+            <Route path="/" element={<Home />} />
 
 
-          {/* Search */}
-          {/* <Route path="/search/news/:keyword" element={<SearchDetail />} /> */}
-          <Route path="/search" element={<Search />} />
-          <Route path="/search-detail/:keyword" element={<SearchDetail />} />
+            {/* AboutUs */}
+            <Route path="/overView" element={<Overview />} />
+            <Route path="/board" element={<Board />} />
 
-        </Routes>
+            {/* Information */}
+            <Route path="/notificationTraining" element={<NotificationTraining />} />
+            <Route path="/notificationStudent" element={<NotificationStudent />} />
+            <Route path="/notificationFinance" element={<NotificationFinance />} />
+
+            <Route path="/trainingPlanCourse" element={<TrainingPlanCourse />} />
+            <Route path="/trainingPlanCourse/:id" element={<TrainingPlanCourseDetail />} />
+
+            {/* Admission */}
+            <Route path="/descriptionCourse" element={<DescriptionCourse />} />
+            <Route path="/registerCourse" element={<RegisterCourse />} />
+            <Route path="/sendMessage" element={<SendMessage />} />
+
+            <Route path="/news" element={<News />} />
+            <Route path="/news/:id" element={<NewsDetails />} />
+
+            {/* Recruitment */}
+            <Route path="/jobSchool" element={<JobSchool />} />
+            <Route path="/jobCompany" element={<JobCompany />} />
+
+
+            {/* Search */}
+            {/* <Route path="/search/news/:keyword" element={<SearchDetail />} /> */}
+            <Route path="/search" element={<Search />} />
+            <Route path="/search-detail/:keyword" element={<SearchDetail />} />
+
+          </Routes>
         <Footer />
       </Router>
     </div>

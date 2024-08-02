@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { aboutUs, infomation, admmission, news, recruitment } from '../../lib/consts/navigation';
 import Logo, { InfoUniversity } from '../Logo';
 import Search from './Search';
-import DropDownWithSubmenu from '../DropDownTest';
+import DropdownMenu from '../Dropdown/DropdownMenu';
 
 const Header = () => {
 
@@ -22,14 +22,14 @@ const Header = () => {
 
             {/* Nav */}
             <div className="bg-blue-400 gap-2 md:gap-20 md:py-3 w-full flex flex-col md:flex-row justify-center  rounded-md ">
-                <Link to="/" className="text-xl font-bold leading-6 text-gray-900 hover:bg-gray-200 px-3 py-2 rounded-md">
+                <Link to="/" className="flex items-center gap-x-2 text-xl font-semibold text-gray-900 hover:text-blue-600 px-3 py-2 rounded-md transition-transform duration-300 transform hover:scale-105">
                     Trang Chủ
                 </Link>
-                <DropDownWithSubmenu title="Giới thiệu" solutions={aboutUs} />
-                <DropDownWithSubmenu title="Đào tạo" solutions={infomation} />
-                <DropDownWithSubmenu title="Tuyển Sinh" solutions={admmission} />
-                <DropDownWithSubmenu title="Tin Tức" solutions={news} />
-                <DropDownWithSubmenu title="Tuyển dụng" solutions={recruitment} />
+                <DropdownMenu title="Giới thiệu" solutions={aboutUs} />
+                <DropdownMenu title="Đào tạo" solutions={infomation} />
+                <DropdownMenu title="Tuyển Sinh" solutions={admmission} />
+                <DropdownMenu title="Tin Tức" solutions={news} />
+                <DropdownMenu title="Tuyển dụng" solutions={recruitment} />
             </div>
         </header>
     );

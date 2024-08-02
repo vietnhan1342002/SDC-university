@@ -26,7 +26,15 @@ const TrainingPlanCourse = () => {
                 <h1 className="text-xl font-medium">NGÀNH HỌC</h1>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                     {listTraining.map((item) => (
-                        <TrainingCourseItem onclick={handleResultClick(item)} key={item.id} title={item.title} body={item.body} trainingDetailLink={`/trainingPlanCourse/${item.id}`}/>
+                        <TrainingCourseItem 
+                        onclick={handleResultClick(item)} 
+                        key={item.id} 
+                        title={item.title} 
+                        body={item.body} 
+                        image='images/job.jpg'
+                        trainingDetailLink={`/trainingPlanCourse/${item.id}`}
+                        isTextVisible={true}
+                        />
                     ))}
                 </div>
             </div>

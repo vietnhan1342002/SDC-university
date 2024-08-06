@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { formatDateTime } from '@/utils/formatDate';
+import { Link } from 'react-router-dom';
 
 function LatestContent({ listNews }) {
 
@@ -18,13 +19,18 @@ function LatestContent({ listNews }) {
         <div>
             {latestNews ? (
                 <div className="flex flex-col gap-2">
-                    <img src="images/banner.jpg" alt="Banner" className="w-full h-full object-contain" />
+                    <Link to={`/news/${latestNews.id}`}>
+                        <img src={latestNews.thumbnailNews} alt="Banner" className="w-full h-full object-contain" />
+                    </Link>
                     <div className="flex items-center gap-4">
                         <p className="text-lg text-yellow-600 font-semibold">TIN TỨC</p>
                         <p className="text-sm text-gray-400 font-base border-l-2 pl-4">{formattedDateTime}</p>
                     </div>
                     <div className="flex flex-col ">
-                        <h1 className="text-2xl font-bold text-gray-700 py-3">{latestNews.title}</h1>
+                        <Link to={`/news/${latestNews.id}`}>
+                            <h1 className="text-2xl font-bold text-gray-700 py-3">{latestNews.title}</h1>
+                        </Link>
+
                         <p className="text-base text-gray-500 font-base">
                             {latestNews.description}
                         </p>

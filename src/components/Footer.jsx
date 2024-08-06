@@ -1,3 +1,4 @@
+import MapComponent from "@/map";
 import Logo, { InfoUniversity } from "./Logo";
 import { FaFacebook, FaGoogle, FaInstagramSquare } from "react-icons/fa";
 
@@ -32,9 +33,9 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="w-full h-1/5 ">
-                    <div className="flex flex-col justify-center items-center h-full gap-2">
+                    <div className="flex flex-col justify-center items-center gap-2 w-full h-96">
                         <p className="text-white text-2xl">Map</p>
-                        <img src='/images/banner.jpg' className="object-fill" />
+                        <MapComponent/>
                     </div>
                 </div>
             </div>

@@ -51,8 +51,8 @@ const InfoUniversity = ({ isFooter }) => {
       <h1 className={classNames("text-xl font-bold text-red-600", {
         'text-base text-white': isFooter
       })}>QUANG NAM VOCATIONAL UNIVERSITY</h1>
-      <ContactInfo icon={<CiLocationOn />} text="41 Lê Duẩn, Hải Châu 1, Đà Nẵng" isFooter={isFooter} />
-      <ContactInfo icon={<MdOutlineEmail />} text="sdc@sdc.udn.vn" isFooter={isFooter} />
+      <ContactInfo icon={<CiLocationOn />} text="431 Hùng Vương - TP. Tam Kỳ - Quảng Nam" isFooter={isFooter} />
+      <ContactInfo icon={<MdOutlineEmail />} text="cdqn@quangnam.gov.vn" isFooter={isFooter} />
       <ContactInfo icon={<MdPhoneInTalk />} text="0123-456-789" isFooter={isFooter} />
     </div>
   )

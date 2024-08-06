@@ -22,7 +22,7 @@ const Header = () => {
 
             {/* Nav */}
             <div className="bg-blue-400 gap-2 md:gap-20 md:py-3 w-full flex flex-col md:flex-row justify-center  rounded-md ">
-                <Link to="/" className="flex items-center gap-x-2 text-xl font-semibold text-gray-900 hover:text-blue-600 px-3 py-2 rounded-md transition-transform duration-300 transform hover:scale-105">
+                <Link to="/" className="flex items-center gap-x-2 text-2xl font-semibold text-white hover:text-black px-3 py-2 rounded-md transition-transform duration-300 transform hover:scale-105">
                     Trang Chủ
                 </Link>
                 <DropdownMenu title="Giới thiệu" solutions={aboutUs} />

@@ -1,7 +1,6 @@
 import { fetchAllNewsSlices, fetchNewsDetail } from '@/redux/News/newsSlice';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 import NewsItem from './components/NewsItem';
 import { useParams } from 'react-router-dom';
 import FeaturedNews from './featuredNews/FeaturedNews';
@@ -26,7 +25,7 @@ function NewsDetails() {
   return (
     <div
 
-      className='flex flex-col items-center w-[80%] p-5 mx-auto max-h-fit'>
+      className='flex flex-col items-center w-4/5 p-5 mx-auto max-h-fit'>
       <div className="flex gap-6">
         <div className=' flex flex-[3]'>
           {newsDetail ? (
@@ -52,8 +51,5 @@ function NewsDetails() {
   );
 }
 
-NewsDetails.propTypes = {
-  id: PropTypes.string, // Đảm bảo id là bắt buộc
-};
 
 export default NewsDetails;

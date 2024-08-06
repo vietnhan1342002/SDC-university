@@ -29,7 +29,7 @@ function TrainingPlanCourseDetail() {
             <div className='w-full'>
                 {trainingDetail ? (
                     <TrainingCourseItem
-                        image='images/job.jpg'
+                        thumbnailTrainingFields={trainingDetail.thumbnailTrainingFields}
                         title={trainingDetail.title}
                         body={trainingDetail.body}
                         isTextVisible={false}

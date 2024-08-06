@@ -33,7 +33,7 @@ const Search = () => {
                 type="text"
                 value={localQuery}
                 onChange={handleInputChange}
-                placeholder="Search..."
+                placeholder="Tìm kiếm"
             />
             <button onClick={handleSearchClick} disabled={isLoading || !localQuery.trim()} >
                 <CiSearch className={`absolute text-gray-400 right-4 top-2 size-6  ${localQuery.trim() ? 'hover:text-black cursor-pointer' : ''}`} />

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { fetchAllNewsSlices, fetchNewsDetail, fetchViewsCounter } from "@/redux/News/newsSlice";
 import NewsItem from "./components/NewsItem";
 import FeaturedNews from "./featuredNews/FeaturedNews";
@@ -12,13 +12,12 @@ const News = () => {
         dispatch(fetchAllNewsSlices());
     }, [dispatch]);
 
-    const handleResultClick = (item) => {
+    const handleResultClick = useCallback((item) => {
         if (item) {
-            // Xử lý khi nhấp vào một kết quả
             dispatch(fetchNewsDetail(item.id));
             dispatch(fetchViewsCounter(item.id));
         }
-    };
+    }, [dispatch]);
 
     return (
         <div className="flex justify-center my-2 w-5/6 mx-auto">
@@ -30,12 +29,12 @@ const News = () => {
                                 onClick={() => handleResultClick(item)} // Sửa để không gọi hàm trực tiếp trong render
                                 key={item.id}
                                 thumbnailNews={item.thumbnailNews}
-                                title={item.title}          
-                                description={item.description}   
+                                title={item.title}
+                                description={item.description}
                                 created_at={item.created_at}
                                 newsDetailLink={`/news/${item.id}`}
                                 isVisible={true}
-                                 />
+                            />
                         ))
                     ) : (
                         <p className="text-center text-gray-500">No news available</p> // Thông báo khi không có tin tức

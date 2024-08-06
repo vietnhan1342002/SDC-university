@@ -7,7 +7,7 @@ function DropdownMenu({ title, solutions = [] }) {
     return (
         <div className="relative inline-block group">
             {/* Nút chính */}
-            <button className="flex items-center gap-x-2 text-xl font-semibold text-gray-900 hover:text-blue-600 px-3 py-2 rounded-md transition-transform duration-300 transform hover:scale-105">
+            <button className="flex items-center gap-x-2 text-2xl font-semibold text-white hover:text-black px-3 py-2 rounded-md transition-transform duration-300 transform hover:scale-105">
                 {title}
             </button>
             {/* Menu chính */}

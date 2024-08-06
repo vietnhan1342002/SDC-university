@@ -4,7 +4,7 @@ import Overview from './pages/aboutUs/Overview';
 import Board from './pages/aboutUs/Board';
 import NotificationTraining from './pages/informations/NotificationTraining';
 import NotificationStudent from './pages/informations/NotificationStudent';
-import NotificationFinance from './pages/informations/NotificationFinance';
+import NotificationFinance from './pages/informations/NotificationFinance/NotificationFinance';
 import TrainingPlanCourse from './pages/informations/trainingPlanCourse/TrainingPlanCourse';
 import DescriptionCourse from './pages/admissions/DescriptionCourse';
 import RegisterCourse from './pages/admissions/RegisterCourse';

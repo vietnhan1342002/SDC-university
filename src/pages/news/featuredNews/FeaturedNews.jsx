@@ -3,15 +3,20 @@ import PropTypes from 'prop-types';
 import NewsItem from '../components/NewsItem'
 import { useDispatch } from 'react-redux';
 import { fetchNewsDetail, fetchViewsCounter } from '@/redux/News/newsSlice';
+import { useCallback } from 'react';
 
 function FeaturedNews({ listNews }) {
   const dispatch = useDispatch();
 
+  const handleResultClick = useCallback(
+    (item) => {
+      dispatch(fetchViewsCounter(item.id));
+      dispatch(fetchNewsDetail(item.id));
+    },
+    [dispatch]
+  );
 
-  const handleResultClick = (item) => {
-    dispatch(fetchViewsCounter(item.id))
-    dispatch(fetchNewsDetail(item.id))
-  }
+  const sortedNews = [...listNews]?.slice().sort((a, b) => b.views - a.views) || [];
 
   return (
     <div className="flex flex-col gap-2">
@@ -22,19 +27,18 @@ function FeaturedNews({ listNews }) {
       </div>
 
 
-      {listNews && listNews.length > 0 ? (
-        [...listNews]
-          .sort((a, b) => b.views - a.views).map((item) => (
-            <div key={item.id}
-              className="flex gap-5"
-              onClick={() => handleResultClick(item)}>
-              <NewsItem
-                title={item.title}
-                created_at={item.created_at}
-                thumbnailNews={item.thumbnailNews}
-                newsDetailLink={`/news/${item.id}`} />
-            </div>
-          ))
+      {sortedNews && sortedNews.length > 0 ? (
+        sortedNews.map((item) => (
+          <div key={item.id}
+            className="flex gap-5"
+            onClick={() => handleResultClick(item)}>
+            <NewsItem
+              title={item.title}
+              created_at={item.created_at}
+              thumbnailNews={item.thumbnailNews}
+              newsDetailLink={`/news/${item.id}`} />
+          </div>
+        ))
       ) : (
         <p className="text-center text-gray-500">Không có tin tức nào để hiển thị.</p>
       )}
@@ -44,7 +48,14 @@ function FeaturedNews({ listNews }) {
 
 export default FeaturedNews;
 
-
 FeaturedNews.propTypes = {
-  listNews: PropTypes.array,
-}
+  listNews: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      created_at: PropTypes.string.isRequired,
+      thumbnailNews: PropTypes.string,
+      views: PropTypes.number.isRequired,
+    })
+  ),
+};

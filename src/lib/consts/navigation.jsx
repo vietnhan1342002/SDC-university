@@ -31,10 +31,6 @@ export const infomation = [
         id: 4,
         name: 'Kế hoạch đào tạo ngành nghề',
         url: '/trainingPlanCourse',
-        subMenuItems: [
-            { id: 1, name: 'Sub Link 1', url: '/sublink1' },
-            { id: 2, name: 'Sub Link 2', url: '/sublink2' },
-        ],
     }
 ];
 export const admmission = [
@@ -42,19 +38,15 @@ export const admmission = [
         id: 1,
         name: 'Mô tả ngành học',
         url: '/descriptionCourse',
-        subMenuItems: [
-            { id: 1, name: 'Sub Link 1', url: '/sublink1' },
-            { id: 2, name: 'Sub Link 2', url: '/sublink2' },
-        ],
     },
     {
         id: 2,
         name: 'Đăng ký ngành học',
         url: '/registerCourse',
-        subMenuItems: [
-            { id: 1, name: 'Sub Link 1', url: '/sublink1' },
-            { id: 2, name: 'Sub Link 2', url: '/sublink2' },
-        ],
+        // subMenuItems: [
+        //     { id: 1, name: 'Sub Link 1', url: '/sublink1' },
+        //     { id: 2, name: 'Sub Link 2', url: '/sublink2' },
+        // ],
     },
     {
         id: 3,
@@ -67,10 +59,6 @@ export const news = [
         id: 1,
         name: 'Tin tức',
         url: '/news',
-        subMenuItems: [
-            { id: 1, name: 'Sub Link 1', url: '/sublink1' },
-            { id: 2, name: 'Sub Link 2', url: '/sublink2' },
-        ],
     }
 ];
 export const recruitment = [

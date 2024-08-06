@@ -26,7 +26,7 @@ function LatestContent({ listNews }) {
                     <div className="flex flex-col ">
                         <h1 className="text-2xl font-bold text-gray-700 py-3">{latestNews.title}</h1>
                         <p className="text-base text-gray-500 font-base">
-                            {latestNews.body}
+                            {latestNews.description}
                         </p>
                     </div>
                 </div>

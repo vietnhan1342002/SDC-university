@@ -8,7 +8,7 @@ export const fetchSearch = createAsyncThunk(
   async ({ type, keyword }, { rejectWithValue }) => {
     try {
       const res = await getDataApi(`search/${type}?keyword=${keyword}`);
-      console.log('API URL:', `search/${type}?keyword=${keyword}`);
+      console.log(`search/${type}?keyword=${keyword}`);
       return res.data;
     } catch (error) {
       return rejectWithValue(error.response.data);

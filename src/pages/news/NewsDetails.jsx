@@ -26,14 +26,18 @@ function NewsDetails() {
   return (
     <div
 
-      className='flex flex-col items-center w-[80%] p-5 mx-auto'>
+      className='flex flex-col items-center w-[80%] p-5 mx-auto max-h-fit'>
       <div className="flex gap-6">
         <div className=' flex flex-[3]'>
           {newsDetail ? (
             <NewsItem
+              thumbnailNews={newsDetail.thumbnailNews}
               title={newsDetail.title}
+              description={newsDetail.description}
               body={newsDetail.body}
               created_at={newsDetail.created_at}
+              desc={newsDetail.description}
+              isVisible={false}
             />
           ) : (
             <p className="text-center text-gray-500">Không có tin tức nào để hiển thị</p>

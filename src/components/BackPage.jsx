@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-function BackPage({ page }) {
+function BackPage({ page = '' }) {
     const navigate = useNavigate();
 
     const handleClick = () => {
@@ -21,13 +21,8 @@ function BackPage({ page }) {
         </button>
     );
 }
-
 BackPage.propTypes = {
     page: PropTypes.string,
-};
-
-BackPage.defaultProps = {
-    page: '', // Giá trị mặc định, có thể điều chỉnh theo nhu cầu
 };
 
 export default BackPage;

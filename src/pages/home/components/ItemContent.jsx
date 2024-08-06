@@ -5,9 +5,9 @@ function ItemContent({ listNews }) {
     return (
         <div className='flex flex-col gap-2 h-full'>
             {listNews && listNews.length > 0 ? (
-                listNews.slice(0, 5).map((item) => (
+                listNews.slice(0, 4).map((item) => (
                     <div key={item.id} className="flex gap-2">
-                        <TextContent thumbnail='images/logo.jpg' title={item.title} time={item.created_at} />
+                        <TextContent thumbnailNews={item.thumbnailNews} title={item.title} time={item.created_at} />
                     </div>
                 ))
             ) : (

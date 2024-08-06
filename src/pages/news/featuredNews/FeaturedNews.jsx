@@ -28,7 +28,11 @@ function FeaturedNews({ listNews }) {
             <div key={item.id}
               className="flex gap-5"
               onClick={() => handleResultClick(item)}>
-              <NewsItem title={item.title} created_at={item.created_at} newsDetailLink={`/news/${item.id}`} />
+              <NewsItem
+                title={item.title}
+                created_at={item.created_at}
+                thumbnailNews={item.thumbnailNews}
+                newsDetailLink={`/news/${item.id}`} />
             </div>
           ))
       ) : (

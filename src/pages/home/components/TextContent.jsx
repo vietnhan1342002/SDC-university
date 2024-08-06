@@ -2,18 +2,18 @@
 import { formatDateTime } from '@/utils/formatDate';
 import PropTypes from 'prop-types';
 
-export default function TextContent({ thumbnail, title, time }) {
+export default function TextContent({ thumbnailNews, title, time }) {
   const formattedDateTime = formatDateTime(time);
 
     return (
         <div className="flex gap-2 items-center">
             {
-                thumbnail ?
-                    (<img src={thumbnail} alt="Thumbnail" className="w-20 h-24 object-fill" />) :
+                thumbnailNews ?
+                    (<img src={thumbnailNews} alt="Thumbnail" className="w-24 h-28 object-fill" />) :
                     <div className='w-1/6' />
             }
             <div className="flex flex-col justify-center gap-1">
-                <p className="text-lg text-black font-semibold">{title}</p>
+                <p className="text-base text-black font-semibold max-h-24 pr-10 line-clamp-3 overflow-hidden">{title}</p>
                 <p className="text-sm text-gray-400 font-base ">{formattedDateTime}</p>
             </div>
         </div>
@@ -22,6 +22,7 @@ export default function TextContent({ thumbnail, title, time }) {
 
 TextContent.propTypes = {
     title: PropTypes.string.isRequired,
+    thumbnailNews: PropTypes.string,
     time: PropTypes.string.isRequired,
     thumbnail: PropTypes.string,
     banner: PropTypes.string,

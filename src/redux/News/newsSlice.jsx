@@ -30,8 +30,10 @@ export const newsSlice = createSlice({
     reducers: {
         setNewsSliceData: (state, action) => {
             state.id = action.payload.id;
+            state.thumbnailNews = action.payload.thumbnailNews;
             state.title = action.payload.title;
             state.body = action.payload.body;
+            state.descrription = action.payload.descrription;
         },
         setNewsDetail: (state, action) => {
             state.newsDetail = action.payload;

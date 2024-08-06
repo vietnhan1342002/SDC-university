@@ -43,10 +43,8 @@ export const admmission = [
         id: 2,
         name: 'Đăng ký ngành học',
         url: '/registerCourse',
-        // subMenuItems: [
-        //     { id: 1, name: 'Sub Link 1', url: '/sublink1' },
-        //     { id: 2, name: 'Sub Link 2', url: '/sublink2' },
-        // ],
+
+        
     },
     {
         id: 3,

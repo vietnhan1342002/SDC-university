@@ -23,7 +23,7 @@ export default function TextContent({ id, thumbnailNews, title, time }) {
 }
 
 TextContent.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     title: PropTypes.string.isRequired,
     thumbnailNews: PropTypes.string,
     time: PropTypes.string.isRequired,

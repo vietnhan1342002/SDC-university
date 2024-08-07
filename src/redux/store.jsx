@@ -4,7 +4,9 @@ import { configureStore } from '@reduxjs/toolkit';
 import overviewSlice from './AboutUs/OverviewSlice';
 import newsSlice from './News/newsSlice';
 import searchSlice from './searchSlice';
-import trainingSlice  from './Training/trainingSlice';
+import trainingSlice from './Training/trainingSlice';
+import eventSlice from './Event/eventSlice';
+import homeSlice from './Home/homeSlice';
 
 const store = configureStore({
     reducer: {
@@ -12,6 +14,8 @@ const store = configureStore({
         news: newsSlice,
         search: searchSlice,
         training: trainingSlice,
+        event: eventSlice,
+        home: homeSlice,
     },
 });
 

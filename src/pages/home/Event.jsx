@@ -1,9 +1,12 @@
 import classNames from "classnames";
 import EventContent from "./components/EventContent";
+import { useSelector } from "react-redux";
+import { list } from "postcss";
 
 export default function Event() {
 
     const item = [1, 2, 3, 4];
+    const listEvent = useSelector(state => state.event.listEvents);
 
     const titleClass = classNames(
         'text-3xl',
@@ -17,10 +20,16 @@ export default function Event() {
             <div className="flex flex-1 flex-col">
                 <h1 className={titleClass}>SỰ KIỆN</h1>
                 {/* Thông báo */}
-                <div className="flex-grow">
-                    <EventContent content="Import và bind styles: Đầu tiên, bạn import classnames/bind và module CSS của bạn. Sau đó, bạn tạo một hàm cx bằng cách gọi classNames.bind(styles). Hàm cx này sẽ tự động liên kết các class name với các kiểu tương ứng từ module CSS." time="10:00" />
-                    <EventContent content="Import và bind styles: Đầu tiên, bạn import classnames/bind và module CSS của bạn. Sau đó, bạn tạo một hàm cx bằng cách gọi classNames.bind(styles). Hàm cx này sẽ tự động liên kết các class name với các kiểu tương ứng từ module CSS." time="10:00" />
-                    <EventContent content="Thông báo" time="10:00" />
+                <div className="flex-grow ">
+                    {
+                        listEvent && listEvent.map((item) => (
+                            <EventContent
+                                key={item.id}
+                                content={item.title}
+                                created_at={item.created_at}
+                            />
+                        ))
+                    }
                 </div>
             </div>
 

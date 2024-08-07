@@ -11,7 +11,7 @@ export const aboutUs = [
 
     }
 ];
-export const infomation = [
+export const notification = [
     {
         id: 1,
         name: 'Thông báo từ phòng đào tạo',
@@ -27,29 +27,20 @@ export const infomation = [
         name: 'Thông báo từ phòng kế hoạch tài chính',
         url: '/notificationFinance',
     },
-    {
-        id: 4,
-        name: 'Kế hoạch đào tạo ngành nghề',
-        url: '/trainingPlanCourse',
-    }
+    
 ];
 export const admmission = [
+
     {
         id: 1,
-        name: 'Mô tả ngành học',
-        url: '/descriptionCourse',
-    },
-    {
-        id: 2,
         name: 'Đăng ký ngành học',
         url: '/registerCourse',
-
         
     },
     {
-        id: 3,
-        name: 'Nhắn tin',
-        url: '/sendMessage'
+        id: 2,
+        name: 'Kế hoạch đào tạo ngành nghề',
+        url: '/trainingPlanCourse',
     }
 ];
 export const news = [

@@ -32,7 +32,7 @@ const TrainingPlanCourse = () => {
                             body={item.body} 
                             thumbnailTrainingFields={item.thumbnailTrainingFields}                                                                                  
                             trainingDetailLink={`/trainingPlanCourse/${item.id}`}
-                            isTextVisible={true}
+                            isNotDetail={true}
                         />
                     ))}
                 </div>

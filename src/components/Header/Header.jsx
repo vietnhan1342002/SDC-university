@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { aboutUs, infomation, admmission, news, recruitment } from '../../lib/consts/navigation';
+import { aboutUs, notification, admmission, news, recruitment } from '../../lib/consts/navigation';
 import Logo, { InfoUniversity } from '../Logo';
 import Search from './Search';
 import DropdownMenu from '../Dropdown/DropdownMenu';
@@ -26,7 +26,7 @@ const Header = () => {
                     Trang Chủ
                 </Link>
                 <DropdownMenu title="Giới thiệu" solutions={aboutUs} />
-                <DropdownMenu title="Đào tạo" solutions={infomation} />
+                <DropdownMenu title="Thông báo" solutions={notification} />
                 <DropdownMenu title="Tuyển Sinh" solutions={admmission} />
                 <DropdownMenu title="Tin Tức" solutions={news} />
                 <DropdownMenu title="Tuyển dụng" solutions={recruitment} />

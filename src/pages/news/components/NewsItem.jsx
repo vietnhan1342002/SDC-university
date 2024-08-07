@@ -35,7 +35,6 @@ function NewsItem({ title, body = '', thumbnailNews, created_at, newsDetailLink,
 
 NewsItem.propTypes = {
   onClick: PropTypes.func,
-  id: PropTypes.string.isRequired,
   thumbnailNews: PropTypes.string,
   title: PropTypes.string.isRequired,
   body: PropTypes.string,

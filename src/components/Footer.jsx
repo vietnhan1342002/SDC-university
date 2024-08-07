@@ -1,8 +1,19 @@
 import MapComponent from "@/map";
 import Logo, { InfoUniversity } from "./Logo";
 import { FaFacebook, FaGoogle, FaInstagramSquare } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchHomeViews } from "@/redux/Home/homeSlice";
 
 const Footer = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchHomeViews());
+    }, [dispatch])
+
+    const { views } = useSelector(state => state.home);
+
     const sizeIcon = 30;
     return (
         <div className="flex flex-col  bg-red-600 pt-4 border-t-2 border-black">
@@ -13,7 +24,7 @@ const Footer = () => {
                             <Logo />
                             <InfoUniversity isFooter={true} />
                         </div>
-                        <p className="text-white text-base font-semibold mt-5">Số lượt truy cập:</p>
+                        <p className="text-white text-base font-semibold mt-5">Số lượt truy cập: {views}</p>
                         <p className="text-white text-base font-semibold">Hiện số lượt truy cập</p>
                         <div className="flex flex-row gap-2">
                             <button className=" opacity-50 hover:opacity-100  rounded-full shadow">
@@ -35,7 +46,7 @@ const Footer = () => {
                 <div className="w-full h-1/5 ">
                     <div className="flex flex-col justify-center items-center gap-2 w-full h-96">
                         <p className="text-white text-2xl">Map</p>
-                        <MapComponent/>
+                        <MapComponent />
                     </div>
                 </div>
             </div>

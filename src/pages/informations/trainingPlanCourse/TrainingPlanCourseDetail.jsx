@@ -32,7 +32,7 @@ function TrainingPlanCourseDetail() {
                         thumbnailTrainingFields={trainingDetail.thumbnailTrainingFields}
                         title={trainingDetail.title}
                         body={trainingDetail.body}
-                        isTextVisible={false}
+                        isNotDetail={false}
 
                     />
                 ) : (

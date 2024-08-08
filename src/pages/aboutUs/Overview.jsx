@@ -1,10 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
 import HeaderAboutUs from "./components/HeaderAboutUs";
-import { useEffect } from "react";
-import { fetchAllOverviews } from "../../redux/AboutUs/OverviewSlice";
-
-
-
 
 const Overview = () => {
 

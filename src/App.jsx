@@ -6,9 +6,7 @@ import NotificationTraining from './pages/informations/NotificationTraining';
 import NotificationStudent from './pages/informations/NotificationStudent';
 import NotificationFinance from './pages/informations/NotificationFinance/NotificationFinance';
 import TrainingPlanCourse from './pages/informations/trainingPlanCourse/TrainingPlanCourse';
-import DescriptionCourse from './pages/admissions/DescriptionCourse';
 import RegisterCourse from './pages/admissions/RegisterCourse';
-import SendMessage from './pages/admissions/SendMessage';
 import News from './pages/news/News';
 import JobSchool from './pages/recruitments/JobSchool';
 import JobCompany from './pages/recruitments/JobCompany';
@@ -47,10 +45,7 @@ export default function App() {
             <Route path="/trainingPlanCourse/:id" element={<TrainingPlanCourseDetail />} />
 
             {/* Admission */}
-            <Route path="/descriptionCourse" element={<DescriptionCourse />} />
             <Route path="/registerCourse" element={<RegisterCourse />} />
-            <Route path="/sendMessage" element={<SendMessage />} />
-
             <Route path="/news" element={<News />} />
             <Route path="/news/:id" element={<NewsDetails />} />
 

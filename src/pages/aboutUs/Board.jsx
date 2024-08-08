@@ -2,26 +2,26 @@ import HeaderAboutUs from "./components/HeaderAboutUs";
 
 const img = 'images/organiztionalStructure.jpg'
 
-const boards = [
-    {
-        name: 'Thông',
-        position: 'Hiệu trưởng',
-        image: 'images/thong.jpg',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis velit sed neque euismod, ac tempor nisi sagittis.'
-    },
-    {
-        name: 'Nhân',
-        position: 'Phó Giảng viên',
-        image: 'images/nhan.jpg',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis velit sed neque euismod, ac tempor nisi sagittis.'
-    },
-    {
-        name: 'Thịnh',
-        position: 'Phó Giảng viên',
-        image: 'images/thinh.jpg',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis velit sed neque euismod, ac tempor nisi sagittis.'
-    }
-]
+// const boards = [
+//     {
+//         name: 'Thông',
+//         position: 'Hiệu trưởng',
+//         image: 'images/thong.jpg',
+//         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis velit sed neque euismod, ac tempor nisi sagittis.'
+//     },
+//     {
+//         name: 'Nhân',
+//         position: 'Phó Giảng viên',
+//         image: 'images/nhan.jpg',
+//         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis velit sed neque euismod, ac tempor nisi sagittis.'
+//     },
+//     {
+//         name: 'Thịnh',
+//         position: 'Phó Giảng viên',
+//         image: 'images/thinh.jpg',
+//         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis velit sed neque euismod, ac tempor nisi sagittis.'
+//     }
+// ]
 
 const Board = () => {
     return (
@@ -31,7 +31,7 @@ const Board = () => {
             <p className="text-4xl text-center p-10 bg-blue-400">
                 HỘI ĐỒNG QUẢN TRỊ BAN GIÁM HIỆU NHÀ TRƯỜNG
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
                 {
                     boards.map((item, index) => (
                         <div key={index} className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
@@ -42,7 +42,7 @@ const Board = () => {
                         </div>
                     ))
                 }
-            </div>
+            </div> */}
         </div>
 
     )

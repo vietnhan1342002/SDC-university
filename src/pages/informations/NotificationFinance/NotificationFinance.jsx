@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import FeaturedNews from "../../news/featuredNews/FeaturedNews";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
-import MapComponent from "@/map";
 
 const NotificationFinance = () => {
     const listNews = useSelector(state => state.news.listNews);
@@ -15,7 +14,15 @@ const NotificationFinance = () => {
                     <div className="flex flex-col gap-2">
                         <div className="flex items-center text-lg font-semibold gap-2">
                             <MdKeyboardDoubleArrowRight />
-                            Thông báo về việc điều chỉnh lịch học tập của các lớp học phần năm học 2023-2024
+                            Thông báo về việc nộp học phí của các lớp học phần năm học 2023-2024
+                        </div>
+                        <div className="flex items-center text-lg font-semibold gap-2">
+                            <MdKeyboardDoubleArrowRight />
+                            Thông báo về việc nộp học phí của các lớp học phần năm học 2023-2024
+                        </div>
+                        <div className="flex items-center text-lg font-semibold gap-2">
+                            <MdKeyboardDoubleArrowRight />
+                            Thông báo về việc nộp học phí của các lớp học phần năm học 2023-2024
                         </div>
                     </div>
                 </div>

@@ -1,8 +1,8 @@
 import classNames from "classnames";
-import TextContent from "./components/TextContent";
 import ItemContent from "./components/ItemContent";
 import { useSelector } from "react-redux";
 import LatestContent from "./components/LatestContent";
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
 export default function Content() {
 
@@ -20,7 +20,7 @@ export default function Content() {
             <div className="flex-[4] flex-col gap-5 border-b-2 border-gray-400 pb-2">
                 <h1 className={titleClass}>TIN TỨC</h1>
                 <div className="flex gap-4 ">
-                    
+
                     <div className="flex flex-[3]">
                         <LatestContent listNews={listNews} />
                     </div>
@@ -38,10 +38,19 @@ export default function Content() {
             {/* Phần 2 */}
             <div className="flex-[2] flex flex-col">
                 <h1 className={titleClass}>THÔNG BÁO</h1>
-                <div className="flex-grow">
-                    <TextContent title="Title" time="Thời gian" />
-                    <TextContent title="Title" time="Thời gian" />
-                    <TextContent title="Title" time="Thời gian" />
+                <div className="flex-grow flex gap-5 flex-col">
+                    <div className="flex items-center text-lg font-semibold gap-2">
+                        <MdKeyboardDoubleArrowRight />
+                        Thông báo về việc nộp học phí của các lớp học phần năm học 2023-2024
+                    </div>
+                    <div className="flex items-center text-lg font-semibold gap-2">
+                        <MdKeyboardDoubleArrowRight />
+                        Thông báo về việc nộp học phí của các lớp học phần năm học 2023-2024
+                    </div>
+                    <div className="flex items-center text-lg font-semibold gap-2">
+                        <MdKeyboardDoubleArrowRight />
+                        Thông báo về việc nộp học phí của các lớp học phần năm học 2023-2024
+                    </div>
                 </div>
                 <img src='images/banner.jpg' alt="Banner" className='w-full h-auto object-contain pb-5' />
             </div>

@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom';
-
-import { aboutUs, notification, admmission, news, recruitment } from '../../lib/consts/navigation';
+import { aboutUs, admmission, home, news, notification, recruitment } from '../../lib/consts/navigation';
 import Logo, { InfoUniversity } from '../Logo';
 import Search from './Search';
 import DropdownMenu from '../Dropdown/DropdownMenu';
@@ -22,11 +20,9 @@ const Header = () => {
 
             {/* Nav */}
             <div className="bg-blue-400 gap-2 md:gap-20 md:py-3 w-full flex flex-col md:flex-row justify-center  rounded-md ">
-                <Link to="/" className="flex items-center gap-x-2 text-2xl font-semibold text-white hover:text-black px-3 py-2 rounded-md transition-transform duration-300 transform hover:scale-105">
-                    Trang Chủ
-                </Link>
+            <DropdownMenu title="Trang Chủ" solutions={home} />
                 <DropdownMenu title="Giới thiệu" solutions={aboutUs} />
-                <DropdownMenu title="Thông báo" solutions={notification} />
+                <DropdownMenu title="Thông Báo" solutions={notification} />
                 <DropdownMenu title="Tuyển Sinh" solutions={admmission} />
                 <DropdownMenu title="Tin Tức" solutions={news} />
                 <DropdownMenu title="Tuyển dụng" solutions={recruitment} />

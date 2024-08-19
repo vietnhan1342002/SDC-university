@@ -3,26 +3,55 @@ import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import FeaturedNews from "../news/featuredNews/FeaturedNews";
 import { useEffect } from "react";
 import { fetchNotifi } from "@/redux/Notifi/notifiSlice";
+import { useParams } from "react-router-dom";
 
-const NotificationTraining = () => {
-    const listNews = useSelector(state => state.news.listNews);
+
+
+
+const Notification = () => {
+    const { type } = useParams();
     const dispatch = useDispatch();
-    const listNotifiTraining = useSelector(state => state.notifi.training || []);
+
+    const listNews = useSelector(state => state.news.listNews);
+
+    const allNotifi = useSelector(state => state.notifi || []);
+    const listNotifi = type === 'daotao'
+    ? allNotifi.training || []
+    : type === 'taichinh'
+    ? allNotifi.finance || []
+    : type === 'CTSV'
+    ? allNotifi.student || []
+    : []
+    ;
+
 
     useEffect(() => {
-        dispatch(fetchNotifi({ department: 'daotao' }));
-    }, [dispatch])
-    console.log(listNotifiTraining);
+        dispatch(fetchNotifi({ department: type }));
+    }, [dispatch, type]);
+
+    const getTitle = () => {
+        switch (type) {
+            case 'daotao':
+                return 'THÔNG BÁO ĐÀO TẠO';
+            case 'CTSV':
+                return 'THÔNG BÁO SINH VIÊN';
+            case 'taichinh':
+                return 'THÔNG BÁO TÀI CHÍNH';
+            default:
+                return 'THÔNG BÁO';
+        }
+    };
+
     return (
         <div className="flex justify-center my-2 w-5/6 mx-auto">
             <div className="flex flex-[3] flex-col m-5 ">
                 <div className="flex flex-col gap-4 p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                    <div className='text-red-500 font-bold text-xl bg-gray-100 p-2 border-l-4 border-yellow-400 '>THÔNG BÁO</div>
+                    <div className='text-red-500 font-bold text-xl bg-gray-100 p-2 border-l-4 border-yellow-400'>{getTitle()}</div>
                     <div className="flex flex-col gap-2">
                         <div className="flex items-center text-lg font-semibold gap-2">
                             <MdKeyboardDoubleArrowRight />
-                            {listNotifiTraining && listNotifiTraining.length > 0 ? (
-                                listNotifiTraining.map((item, index) => (
+                            {listNotifi && listNotifi.length > 0 ? (
+                                listNotifi.map((item, index) => (
                                     <div key={index}>
                                         <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
                                             {item.title}
@@ -41,7 +70,6 @@ const NotificationTraining = () => {
             </div>
         </div>
     );
-
 }
 
-export default NotificationTraining;
+export default Notification;

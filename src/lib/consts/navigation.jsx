@@ -1,3 +1,12 @@
+export const home = [
+    {
+        id: 1,
+        name: 'Trang chủ',
+        url: '/',
+    },
+
+];
+
 export const aboutUs = [
     {
         id: 1,
@@ -11,31 +20,14 @@ export const aboutUs = [
 
     }
 ];
-export const notification = [
-    {
-        id: 1,
-        name: 'Thông báo từ phòng đào tạo',
-        url: '/notificationTraining',
-    },
-    {
-        id: 2,
-        name: 'Thông báo từ phòng công tác sinh viên',
-        url: '/notificationStudent',
-    },
-    {
-        id: 3,
-        name: 'Thông báo từ phòng kế hoạch tài chính',
-        url: '/notificationFinance',
-    },
-    
-];
+
 export const admmission = [
 
     {
         id: 1,
         name: 'Đăng ký ngành học',
         url: '/registerCourse',
-        
+
     },
     {
         id: 2,
@@ -61,4 +53,23 @@ export const recruitment = [
         name: 'Cơ hội việc làm từ doanh nghiệp',
         url: '/jobCompany'
     }
+];
+
+export const notification = [
+    {
+        id: 1,
+        name: 'Thông báo từ phòng đào tạo',
+        url: 'notification/daotao',
+    },
+    {
+        id: 2,
+        name: 'Thông báo từ phòng công tác sinh viên',
+        url: 'notification/CTSV',
+    },
+    {
+        id: 3,
+        name: 'Thông báo từ phòng kế hoạch tài chính',
+        url: 'notification/taichinh',
+    },
+
 ];

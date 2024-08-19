@@ -7,6 +7,7 @@ import searchSlice from './searchSlice';
 import trainingSlice from './Training/trainingSlice';
 import eventSlice from './Event/eventSlice';
 import homeSlice from './Home/homeSlice';
+import notifiSlice from './Notifi/notifiSlice'
 
 const store = configureStore({
     reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
         training: trainingSlice,
         event: eventSlice,
         home: homeSlice,
+        notifi: notifiSlice,
     },
 });
 

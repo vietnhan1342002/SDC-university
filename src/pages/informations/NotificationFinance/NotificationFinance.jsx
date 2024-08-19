@@ -1,11 +1,18 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import FeaturedNews from "../../news/featuredNews/FeaturedNews";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import { useEffect } from "react";
+import { fetchNotifi } from "@/redux/Notifi/notifiSlice";
 
 const NotificationFinance = () => {
+    const dispatch = useDispatch();
     const listNews = useSelector(state => state.news.listNews);
+    const listFinance = useSelector(state => state.training.finance);
 
-
+    useEffect(() => {
+        dispatch(fetchNotifi({ department: 'finance' }));
+    }, [dispatch])
+    console.log(listFinance);
     return (
         <div className="flex justify-center my-2 w-5/6 mx-auto">
             <div className="flex flex-[3] flex-col m-5 ">
@@ -26,7 +33,7 @@ const NotificationFinance = () => {
                         </div>
                     </div>
                 </div>
-            {/* <MapComponent/> */}
+                {/* <MapComponent/> */}
             </div>
             <div className="flex-col flex-1 gap-3 m-5 hidden md:flex border max-w-full">
                 <FeaturedNews listNews={listNews} />

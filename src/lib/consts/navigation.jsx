@@ -59,17 +59,17 @@ export const notification = [
     {
         id: 1,
         name: 'Thông báo từ phòng đào tạo',
-        url: 'notification/daotao',
+        url: '/daotao',
     },
     {
         id: 2,
         name: 'Thông báo từ phòng công tác sinh viên',
-        url: 'notification/CTSV',
+        url: '/CTSV',
     },
     {
         id: 3,
         name: 'Thông báo từ phòng kế hoạch tài chính',
-        url: 'notification/taichinh',
+        url: '/taichinh',
     },
 
 ];

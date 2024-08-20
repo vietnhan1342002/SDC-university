@@ -3,7 +3,7 @@ import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import FeaturedNews from "../news/featuredNews/FeaturedNews";
 import { useEffect } from "react";
 import { fetchNotifi } from "@/redux/Notifi/notifiSlice";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
 
@@ -16,13 +16,13 @@ const Notification = () => {
 
     const allNotifi = useSelector(state => state.notifi || []);
     const listNotifi = type === 'daotao'
-    ? allNotifi.training || []
-    : type === 'taichinh'
-    ? allNotifi.finance || []
-    : type === 'CTSV'
-    ? allNotifi.student || []
-    : []
-    ;
+        ? allNotifi.training || []
+        : type === 'taichinh'
+            ? allNotifi.finance || []
+            : type === 'CTSV'
+                ? allNotifi.student || []
+                : []
+        ;
 
 
     useEffect(() => {
@@ -51,11 +51,11 @@ const Notification = () => {
                         <div className="flex items-center text-lg font-semibold gap-2">
                             <MdKeyboardDoubleArrowRight />
                             {listNotifi && listNotifi.length > 0 ? (
-                                listNotifi.map((item, index) => (
-                                    <div key={index}>
-                                        <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+                                listNotifi.slice(0, 5).map((item) => (
+                                    <div key={item.id}>
+                                        <Link to={item.id} className="hover:text-blue-500">
                                             {item.title}
-                                        </a>
+                                        </Link>
                                     </div>
                                 ))
                             ) : (

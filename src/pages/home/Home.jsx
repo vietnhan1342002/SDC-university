@@ -5,7 +5,8 @@ import Event from "./Event";
 import { useEffect } from "react";
 import { fetchAllNewsSlices } from "@/redux/News/newsSlice";
 import { fetchAllEvents } from "@/redux/Event/eventSlice";
-import {  incrementHomeViews } from "@/redux/Home/homeSlice";
+import { incrementHomeViews } from "@/redux/Home/homeSlice";
+import { fetchAllNotifi } from "@/redux/Notifi/notifiSlice";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const Home = () => {
         dispatch(fetchAllNewsSlices())
         dispatch(fetchAllEvents())
         dispatch(incrementHomeViews());
+        dispatch(fetchAllNotifi())
     }, [dispatch])
 
     return (

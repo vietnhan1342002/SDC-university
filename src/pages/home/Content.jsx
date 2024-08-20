@@ -7,6 +7,7 @@ import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 export default function Content() {
 
     const listNews = useSelector(state => state.news.listNews);
+    const listNotifi = useSelector(state => state.notifi.listtNotifi);
 
     const titleClass = classNames(
         'text-3xl',
@@ -41,16 +42,19 @@ export default function Content() {
                 <div className="flex-grow flex gap-5 flex-col">
                     <div className="flex items-center text-lg font-semibold gap-2">
                         <MdKeyboardDoubleArrowRight />
-                        Thông báo về việc nộp học phí của các lớp học phần năm học 2023-2024
+                        {listNotifi && listNotifi.length > 0 ? (
+                            listNotifi.map((item, index) => (
+                                <div key={index}>
+                                    <a href={item.id} target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+                                        {item.title}
+                                    </a>
+                                </div>
+                            ))
+                        ) : (
+                            <div>Không có thông báo</div>
+                        )}
                     </div>
-                    <div className="flex items-center text-lg font-semibold gap-2">
-                        <MdKeyboardDoubleArrowRight />
-                        Thông báo về việc nộp học phí của các lớp học phần năm học 2023-2024
-                    </div>
-                    <div className="flex items-center text-lg font-semibold gap-2">
-                        <MdKeyboardDoubleArrowRight />
-                        Thông báo về việc nộp học phí của các lớp học phần năm học 2023-2024
-                    </div>
+
                 </div>
                 <img src='images/banner.jpg' alt="Banner" className='w-full h-auto object-contain pb-5' />
             </div>

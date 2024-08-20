@@ -17,6 +17,7 @@ import Search from './components/Header/Search';
 import NewsDetails from './pages/news/NewsDetails';
 import TrainingPlanCourseDetail from './pages/informations/trainingPlanCourse/TrainingPlanCourseDetail';
 import Notification from './pages/notifi/Notification';
+import NotifiDetail from './pages/notifi/NotifiDetail';
 
 
 export default function App() {
@@ -54,7 +55,8 @@ export default function App() {
           <Route path="/search-detail/:keyword" element={<SearchDetail />} />
 
           {/* Notification */}
-          <Route path="/notification/:type" element={<Notification />} />
+          <Route path="/:type" element={<Notification />} />
+          <Route path="/:type/:id" element={<NotifiDetail />} />
         </Routes>
         <Footer />
       </Router>
